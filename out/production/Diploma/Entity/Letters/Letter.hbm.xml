@@ -1,0 +1,23 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name = "Entity.Letters.Letter" table = "letter">
+
+        <meta attribute = "class-description">
+            This class contains the letter detail.
+        </meta>
+
+        <id name = "letterID" type = "int" column = "letter_id">
+            <generator class="native"/>
+        </id>
+
+        <property name = "letterText" column = "letter_text" type = "string"/>
+        <many-to-one name="author" entity-name="Entity.Users.User" column="author" class="Entity.Users.User"/>
+        <many-to-one name="receiver" entity-name="Entity.Users.User" column="receiver" class="Entity.Users.User"/>
+        <property name="sentTime" column="sent_time" type="int"/>
+
+    </class>
+</hibernate-mapping>
